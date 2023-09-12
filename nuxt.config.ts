@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     'nuxt-lodash',
     '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/supabase',
+    // '@nuxtjs/supabase',
   ],
   build: {
     transpile: ['pinia-plugin-persistedstate'],

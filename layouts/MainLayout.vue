@@ -22,7 +22,7 @@
             cursor-pointer
           "
         >
-          Sell on ACMExpress
+          Sell on AliExpress
         </li>
         <li
           class="

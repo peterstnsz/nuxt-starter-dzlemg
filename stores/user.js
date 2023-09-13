@@ -9,3 +9,10 @@ export const useUserStore = defineStore('user', {
   }),
   persist: true,
 });
+
+export const useToggleStore = defineStore('toggle', {
+  state: () => ({
+    isToggleSelected: false,
+  }),
+  persist: true,
+});

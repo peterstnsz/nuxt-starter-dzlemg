@@ -13,13 +13,13 @@
         "
       >
         <div v-if="products" v-for="product in products" :key="product">
-          {{ product }}
           <ProductComponent :product="product" />
         </div>
       </div>
     </div>
   </MainLayout>
 </template>
+
 <script setup>
 import MainLayout from '~/layouts/MainLayout.vue';
 

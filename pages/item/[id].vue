@@ -25,6 +25,13 @@
             </div>
           </div>
         </div>
+
+        <div class="md:w-[60%] bg-white p-3 rounded-lg">
+          <div v-if="true">
+            <p class="mb-2">Title</p>
+            <p class="font-light text-[12px] mb-2">Description Section</p>
+          </div>
+        </div>
       </div>
     </div>
   </MainLayout>

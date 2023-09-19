@@ -53,6 +53,45 @@
             >
           </div>
           <div class="border-b" />
+
+          <div class="flex items-center justify-start gap-2 my-2">
+            <div class="text-xl font-bold">$ {{ priceComputed }}</div>
+            <span
+              class="
+                bg-[#F5F5F5]
+                border
+                text-[#C08562] text-[9px]
+                font-semibold
+                px-1.5
+                rounded-sm
+              "
+              >70% off</span
+            >
+          </div>
+
+          <p class="text-[#009A66] text-xs font-semibold pt-1">
+            Free 11-day delivery over £8.28
+          </p>
+          <p class="text-[#009A66] text-xs font-semibold pt-1">Free Shipping</p>
+          <div class="py-2">
+            <button
+              @click="addToCart()"
+              :disabled="isInCart"
+              class="
+                px-6
+                py-2
+                rounded-lg
+                text-white text-lg
+                font-semibold
+                bg-gradient-to-r
+                from-[#FF851A]
+                to-[#FFAC2C]
+              "
+            >
+              <div v-if="isInCart">Is Added</div>
+              <div v-else>Add to Cart</div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -61,6 +100,10 @@
 
 <script setup>
 import MainLayout from '~/layouts/MainLayout.vue';
+import { useUserStore } from '~/stores/user';
+const userStore = useUserStore();
+
+const route = useRoute();
 
 const currentImage = ref(null);
 
@@ -71,6 +114,20 @@ onMounted(() => {
   });
 });
 
+const isInCart = computed(() => {
+  let res = false;
+  userStore.cart.forEach((prod) => {
+    if (route.params.id == prod.id) {
+      res = true;
+    }
+  });
+  return res;
+});
+
+const priceComputed = computed(() => {
+  return '26.40';
+});
+
 const images = ref([
   '',
   'https://picsum.photos/id/212/800/800',
@@ -79,4 +136,8 @@ const images = ref([
   'https://picsum.photos/id/99/800/800',
   'https://picsum.photos/id/144/800/800',
 ]);
+
+const addToCart = () => {
+  alert('ADDED');
+};
 </script>
